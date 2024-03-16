@@ -1,0 +1,11 @@
+<li id="filme{{item.id}}">
+    <img src="https://image.tmdb.org/t/p/w780/{{item.poster_path}}" height="600" loading="lazy" />
+    <div>
+        <h3>{{item.title}}</h3>
+        <p>Nota: {{item.vote_average}} ({{item.vote_count}})</p>
+        <span>Lançamento: {{item.release_date}}</span>
+
+        <p>{{item.overview}}</p>
+        <button (click)="modal()">Detalhes</button>
+    </div>
+</li>

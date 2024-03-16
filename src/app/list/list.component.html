@@ -1,0 +1,23 @@
+<section>
+    @if (loading) {
+    <img src="../../assets/Spinner-1.8s-271px.svg" width="150px" />
+    }
+    @else{
+    <ul>
+        @for (item of data.results; track $index) {
+        <app-item [item]="item"></app-item>
+        }
+    </ul>
+    @if(data.page > 0){
+    <div class="pagination">
+        @if(data.page > 1){
+        <button (click)="sendPageMinus()">Anterior</button>
+        }
+        {{data.page}} de {{data.total_pages}}
+        @if(data.page < data.total_pages ){ <button (click)="sendPagePlus()">Proximo</button>
+            }
+    </div>
+    }
+    }
+
+</section>
