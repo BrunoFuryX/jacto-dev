@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { instance } from '../utils/api'
 import { DetailsComponent } from './details/details.component';
-import { Placeholder } from '../assets/homepage.js'
+import { Placeholder } from '../assets/placeholderHome.js'
 import { HeaderComponent } from './header/header.component';
 import { DataService } from './search.service';
 @Component({
