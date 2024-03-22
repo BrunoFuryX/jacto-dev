@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../modal.service';
 import { instance } from '../../utils/api';
+import { RecommendsItemComponent } from './recommends-item/recommends-item.component';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [],
+  imports: [RecommendsItemComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
@@ -18,6 +19,7 @@ export class DetailsComponent {
 
   }
   item: any;
+  related: any;
   open: boolean = false;
 
   close() {
@@ -31,11 +33,18 @@ export class DetailsComponent {
   changeItem(id: string) {
     instance.get(`/3/movie/${id}?language=pt-BR`)
       .then(response => {
-        response.data.release_date = `${response.data.release_date.split("-")[2]}/${response.data.release_date.split("-")[1]}/${response.data.release_date.split("-")[0]}`
-        response.data.vote_average = `${response.data.vote_average.toFixed(1)}`
-        response.data.budget = this.USDollar.format(response.data.budget)
-        response.data.revenue = this.USDollar.format(response.data.revenue)
+        response.data.release_date_format = `${response.data.release_date.split("-")[2]}/${response.data.release_date.split("-")[1]}/${response.data.release_date.split("-")[0]}`
+        response.data.vote_average_format = `${response.data.vote_average.toFixed(1)}`
+        response.data.budget_format = this.USDollar.format(response.data.budget)
+        response.data.revenue_format = this.USDollar.format(response.data.revenue)
         this.item = response.data
+      })
+      .catch(err => {
+        console.error(err)
+      });
+    instance.get(`/3/movie/${id}/recommendations?language=pt-Br&page=1`)
+      .then(response => {
+        this.related = response.data.results
       })
       .catch(err => {
         console.error(err)

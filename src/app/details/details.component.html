@@ -1,25 +1,35 @@
 @if(item && open){
 <div class="modal">
+    <div class="modal_shadow" (click)="close()"></div>
     <div class="modal_content">
         <button class="modal_close" (click)="close()">
             <img src="../../assets/signs-close-icon-png.webp" alt="close modal" width="20px">
         </button>
 
+        @if (item.poster_path) {
         <div class="modal_image">
             <img src="https://image.tmdb.org/t/p/w780/{{item.poster_path}}" height="600" loading="lazy" />
         </div>
+        }
         <div class="modal_infos">
             <div class="modal_infos_title">{{item.title}}</div>
             <div class="modal_infos_releasevotes">
-                <div class="modal_infos_votes">Nota: {{item.vote_average}} ({{item.vote_count}})</div>
-                <div class="modal_infos_release">Lançamento: {{item.release_date}}</div>
+                @if (item.vote_count > 0) {
+                <div class="modal_infos_votes">Nota: {{item.vote_average_format}} ({{item.vote_count}})</div>
+                }
+                <div class="modal_infos_release">Lançamento: {{item.release_date_format}}</div>
             </div>
 
             <div class="modal_infos_overview">{{item.overview}}</div>
-            <div class="modal_infos_budget">Custo: {{item.budget}}</div>
-            <div class="modal_infos_revenue">Faturamento: {{item.revenue}}</div>
-            <div class="modal_infos_productionCompanies">@for (comp of item.production_companies; track $index) {
-                <p>{{comp.name}}</p>
+
+            <div class="modal_infos_productionCompanies">
+                <p>@for (comp of item.production_companies; track $index) {
+                    {{comp.name}}&nbsp;
+                    }</p>
+            </div>
+            <div class="related">
+                @for (item of related; track $index) {
+                <app-recommends-item [item]="item" />
                 }
             </div>
         </div>

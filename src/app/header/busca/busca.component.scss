@@ -1,0 +1,35 @@
+.container {
+    border: 1px solid #fff8;
+    border-radius: 20px;
+    display: flex;
+    gap: 8px;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    input {
+        background: transparent;
+        color: #fff;
+        appearance: none;
+        border: 0;
+        outline: none;
+        height: 40px;
+        padding: 0 16px;
+    }
+
+    button {
+        background: transparent;
+        color: #fff;
+        appearance: none;
+        border: 0;
+        outline: none;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+    }
+}

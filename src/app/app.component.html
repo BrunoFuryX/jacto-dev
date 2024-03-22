@@ -1,12 +1,11 @@
-<main class="main">
+<app-details></app-details>
 
-  <div class="container_busca">
+<app-header />
+<main class="main">
+  <!-- <div class="container_busca">
     <input type="text" placeholder="Vingadores..." (keyup)="onKey($event)" />
     <button (click)="Search()">Buscar</button>
-  </div>
+  </div> -->
 
   <app-list [data]="response" [loading]="loading" (messageEvent)="receivePage($event)"></app-list>
-  <app-footer></app-footer>
 </main>
-
-<app-details></app-details>

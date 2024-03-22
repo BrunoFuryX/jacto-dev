@@ -1,0 +1,19 @@
+.item {
+    border: 1px solid #fff8;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    padding-bottom: 8px;
+    cursor: pointer;
+
+    h5 {
+        padding: 0 8px;
+        height: 33px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}

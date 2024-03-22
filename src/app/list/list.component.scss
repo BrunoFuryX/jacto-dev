@@ -1,3 +1,6 @@
+@import url(../../styles/vars.scss);
+
+
 section {
     padding: 20px 0;
     display: flex;
@@ -7,9 +10,10 @@ section {
     align-items: center;
 
     ul {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        max-width: 1680px;
+        display: flex;
+        max-width: 1660px;
+        padding: 0 40px;
+        justify-content: center;
         width: 100%;
         flex-wrap: wrap;
         gap: 20px;
@@ -23,17 +27,18 @@ section {
 
         gap: 10px;
         font-size: 16px;
-        color: #fff;
+        color: var(--white);
 
         button {
             width: 80px;
             height: 30px;
-            color: #fff;
-            background-color: #af6900;
             border: 0;
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
+
+            color: var(--white);
+            background-color: var(--orange);
 
             &:hover {
                 opacity: 0.8;

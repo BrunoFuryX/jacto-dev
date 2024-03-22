@@ -1,15 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { DataService } from '../modal.service';
+import { DataService } from '../../modal.service';
 
 @Component({
-  selector: 'app-item',
+  selector: 'app-recommends-item',
   standalone: true,
   imports: [],
-  templateUrl: './item.component.html',
-  styleUrl: './item.component.scss'
+  templateUrl: './recommends-item.component.html',
+  styleUrl: './recommends-item.component.scss'
 })
-export class ItemComponent {
-
+export class RecommendsItemComponent {
   @Input() item: any
 
   constructor(private data: DataService) { }
@@ -26,6 +25,5 @@ export class ItemComponent {
     var vote_average = this.item.vote_average
     this.item.vote_average = `${vote_average.toFixed(1)}`
   }
-
 
 }
